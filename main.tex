@@ -1,0 +1,80 @@
+\documentclass[russian,utf8,floatsection,equationsection]{eskdtext}
+% Объявляем документ класса eskdtext (подробнее можно узнать из описания пакета eskdx)
+% russian - текст на русском языке, utf8 - кодировка документа UTF-8
+% floatsection - нумерация таблиц и рисунков с учётом номера главы, equationsection - то же для формул
+\usepackage{longtable} % В документе используем пакет longtable для создания таблиц
+\usepackage{graphicx} % Используем графику в документе
+\usepackage{tikz}
+\usepackage{mathtext} % Русские буквы в формулах
+\usepackage[T2A]{fontenc}
+
+\usetikzlibrary{shapes,arrows}
+ 
+\ESKDdocName{Проектирования системы управления на базе обучения с подкреплением}
+\ESKDsignature{Курсовой проект по проектированию}
+\ESKDsignature{КуП 15.04.06\_03 СМ7} % Шифр
+ 
+ \ESKDdepartment{%
+ Московский Государственный Технический Университет имени Н.Э.Баумана \\
+(Национальный Исследовательский Университет) 
+}
+\ESKDcompany{%
+ \includegraphics[width=0.3\textwidth]{img/logo.png}\\[1cm]
+}
+\ESKDauthor{Юнес А.Ю.} % "Разраб." в штампе на листе содержания
+\ESKDchecker{Ющенко А.С.} % "Пров."  в штампе на листе содержания
+% \ESKDnormContr{} % "Н. контр." в штампе на листе содержания
+% \ESKDapprovedBy{}%  "Увт." в штампе на листе содержания
+% \ESKDdate{2019} % Дата (Год отображается на титульной странице)
+% \ESKDletter{}{У}{} % Литеры
+ 
+\renewcommand{\ESKDtheTitleFieldX}{%
+Москва
+\ESKDtheYear~г.} % Шаблон для отображения в нижней части титульного листа города и года
+
+\ESKDtitleDesignedBy{Студент}{Юнес \textsc{А.Ю.}} % Подпись и дата под заголовком документа
+\ESKDtitleApprovedBy{Рукаводитель:}{Ющенко \textsc{А.С.}} % Утверждаю
+ 
+\renewcommand{\baselinestretch}{1} % Задаём единичный межстрочный интервал
+ 
+\ESKDsectStyle{section}{\normalsize} % Заголовки глав обычным шрифтом
+%\ESKDsectStyle{subsection}{\normalsize} % Заголовки разделов обычным шрифтом
+%\ESKDsectStyle{subsubsection}{\normalsize} % Заголовки подразделов обычным шрифтом
+ 
+\begin{document} % Маркер начала документа
+\maketitle % Создать титульный лист на основе данных в заголовке документа
+
+\tikzstyle{rect}=[draw,rectangle,fill=white!20,text width=6em,text centered,minimum height=2em]
+\tikzstyle{elli}=[draw,ellipse,fill=white!20]%,minimum height=2em]
+\tikzstyle{circ}=[draw,circle,fill=white!20]%,minimum width=8pt,inner sep=10pt]
+\tikzstyle{diam}=[draw,diamond,fill=white!20,text width=6em,text badly centered,inner sep=0pt,, aspect=1.5]
+\tikzstyle{line}=[draw,-latex']
+\newpage
+\ESKDappendix{Algorithm}{MPC controller\label{app:tt120}}
+\begin{figure}[h]
+    \centering
+    % node distance=3cm
+    % don't forget ;
+    \begin{tikzpicture}[node distance=1.5cm,auto]
+    \node [elli](a1){start};
+    \node [rect, below of=a1, rounded corners](a2){calculate};
+    \node [diam,below of=a2,node distance=3cm](d1){OK? or you have another opinion};
+    \node [rect,left of=d1, node distance=5cm](a3){aa};
+    \node [rect,below of=d1, node distance=3cm](a4){aasa};
+    \path [line] (a1) -- (a2);
+    \path [line] (a2) -- (d1);
+    \path [line] (d1) -- node [above, near start] {No} (a3);
+    \path [line] (d1) -- node [left, near start] {yes} (a4);
+    \path [line, rounded corners,dashed] (a3) |- (a2); 
+    \end{tikzpicture}
+    \caption{Caption}
+    \label{fig:my_label}
+\end{figure}
+\newpage
+\ESKDappendix{Algorithm}{CEM optimizer\label{app:tt120}}
+\newpage
+\ESKDappendix{Algorithm}{CEM optimizer\label{app:tt120}}
+\newpage
+\ESKDappendix{Algorithm}{CEM optimizer\label{app:tt120}}
+
+\end{document} % Маркер завершения документа
